@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>SDE_DoorController</defName>
+        <label>door boost module</label>
+        <description>A wall-mounted controller that boosts the opening speed of ajacent security and blast doors. Placing more than one boost module near the same door has no effect.</description>
+        <rotatable>true</rotatable>
+        <graphicData>
+            <texPath>Things/Building/DoorController/DoorController</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawOffsetNorth>(0,0,0.9)</drawOffsetNorth>
+            <drawOffsetSouth>(0,0,-0.9)</drawOffsetSouth>
+            <drawOffsetWest>(-0.9,0,0)</drawOffsetWest>
+            <drawOffsetEast>(0.9,0,0)</drawOffsetEast>
+            <damageData>
+                <enabled>false</enabled>
+            </damageData>
+        </graphicData>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>Standable</passability>
+        <pathCost>0</pathCost>
+        <size>(1, 1)</size>
+        <terrainAffordanceNeeded IsNull="True" />
+        <statBases>
+            <MaxHitPoints>120</MaxHitPoints>
+            <WorkToBuild>4000</WorkToBuild>
+            <Mass>8</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <costList>
+            <Steel>45</Steel>
+            <ComponentIndustrial>4</ComponentIndustrial>
+        </costList>
+        <building>
+            <isEdifice>false</isEdifice>
+            <isAttachment>true</isAttachment>
+            <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+        </building>
+        <designationCategory>Structure</designationCategory>
+        <designationHotKey>Misc2</designationHotKey>
+        <uiOrder>2024</uiOrder>
+        <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+        <researchPrerequisites>
+            <li>SDE_ArmoredSecurityDoors</li>
+        </researchPrerequisites>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <overrideMinifiedRot>North</overrideMinifiedRot>
+        <minifiedDrawOffset>(0, 0, 0.2)</minifiedDrawOffset>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>150</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
+            <li Class="CompProperties_Facility">
+                <statOffsets>
+                    <!-- TODO: Might require better balancing in the future -->
+                    <DoorOpenSpeed>1.2</DoorOpenSpeed>
+                </statOffsets>
+                <maxSimultaneous>1</maxSimultaneous>
+                <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+            </li>
+        </comps>
+        <placeWorkers>
+            <li>Placeworker_AttachedToWall</li>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </placeWorkers>
+    </ThingDef>
+
+</Defs>
