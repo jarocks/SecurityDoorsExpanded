@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Security and Blast Doors Expanded</name>
+  <author>LadySylveon</author>
+  <packageId>Jarocks.SecurityDoorsExpanded</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Rejoice, blast doors are here! This mod adds more sizes, new materials, integrated vac barriers, and more to security doors making these once overlooked doors into top-tier infrastructure for your colony and gravship. No longer underpowered, one trick ponies that can't even keep a revenant at bay. And yes, this mod does keep revenants and other nuisance entities locked out (or in) as well.</description>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld.Anomaly</li>
+    <li>Ludeon.RimWorld.Odyssey</li>
+    <li>ReBuild.COTR.DoorsAndCorners</li>
+    <li>SmashPhil.VehicleFramework</li>
+  </loadAfter>
+  <incompatibleWith>
+    <li>Jarocks.SDEBeta</li>
+  </incompatibleWith>
+</ModMetaData>

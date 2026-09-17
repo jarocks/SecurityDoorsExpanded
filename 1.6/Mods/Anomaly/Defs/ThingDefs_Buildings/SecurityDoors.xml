@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="SDE_DoorSmallBase">
+    <defName>SDE_SecurityDoorSmall</defName>
+    <label>security door (1x1)</label>
+    <description>A heavily reinforced door. It's slow to open and requires electricity, but is very strong. It's a good choice if you want to keep something dangerous out - or in.</description>
+    <graphicData>
+      <texPath>Things/Building/SecurityDoor_Small/SecurityDoor_Small_Underlayer_Mover</texPath>
+    </graphicData>
+    <uiIconPath>Things/Building/SecurityDoor_Small/SecurityDoor_Small_MenuIcon_south</uiIconPath>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/SecurityDoor_Small/SecurityDoor_Small_MenuIcon</texPath>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <texPath>Things/Building/SecurityDoor_Small/SecurityDoor_Small_Top</texPath>
+        <drawSize>(2.25, 2.4)</drawSize>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <texPath>Things/Building/SecurityDoor_Small/SecurityDoor_Small_Support</texPath>
+        <drawSize>(2.25, 2.4)</drawSize>
+      </doorSupportGraphic>
+      <upperMoverGraphic>
+        <texPath>Things/Building/SecurityDoor_Small/SecurityDoor_Small_Upper_Mover</texPath>
+      </upperMoverGraphic>
+    </building>
+    <statBases>
+      <WorkToBuild>2300</WorkToBuild>
+      <MaxHitPoints>255</MaxHitPoints>
+    </statBases>
+    <researchPrerequisites>
+      <li>SecurityDoor</li>
+    </researchPrerequisites>
+    <uiOrder>2016</uiOrder>
+    <costStuffCount>25</costStuffCount>
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="SDE_DoorLargeBase">
+    <defName>SDE_SecurityDoorLarge</defName>
+    <label>security door (1x3)</label>
+    <description>A heavily reinforced door. It's slow to open and requires electricity, but is very strong. It's a good choice if you want to keep something dangerous out - or in. The door requires walls on either side to function.</description>
+    <graphicData>
+      <texPath>Things/Building/SecurityDoor_Large/SecurityDoor_Large_Underlayer_Mover</texPath>
+    </graphicData>
+    <uiIconPath>Things/Building/SecurityDoor_Large/SecurityDoor_Large_MenuIcon_south</uiIconPath>
+    <building>
+      <soundDoorOpenPowered>SecurityDoor_Open</soundDoorOpenPowered>
+      <soundDoorClosePowered>SecurityDoor_BeginClosing</soundDoorClosePowered>
+      <soundDoorOpenManual>SecurityDoor_Open</soundDoorOpenManual>
+      <soundDoorCloseManual>SecurityDoor_BeginClosing</soundDoorCloseManual>
+      <soundDoorCloseEnd>SecurityDoor_EndClosing</soundDoorCloseEnd>
+      <blueprintGraphicData>
+        <texPath>Things/Building/SecurityDoor_Large/SecurityDoor_Large_MenuIcon</texPath>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <texPath>Things/Building/SecurityDoor_Large/SecurityDoor_Large_Top</texPath>
+        <drawSize>(4, 2.4)</drawSize>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <texPath>Things/Building/SecurityDoor_Large/SecurityDoor_Large_Support</texPath>
+        <drawSize>(4, 2.4)</drawSize>
+      </doorSupportGraphic>
+      <upperMoverGraphic>
+        <texPath>Things/Building/SecurityDoor_Large/SecurityDoor_Large_Upper_Mover</texPath>
+      </upperMoverGraphic>
+    </building>
+    <statBases>
+      <WorkToBuild>4100</WorkToBuild>
+      <MaxHitPoints>430</MaxHitPoints>
+    </statBases>
+    <researchPrerequisites>
+      <li>SecurityDoor</li>
+    </researchPrerequisites>
+    <uiOrder>2018</uiOrder>
+    <costStuffCount>75</costStuffCount>
+    <costList>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+  </ThingDef>
+
+  <ThingDef ParentName="SDE_DoorVehicleBase">
+    <defName>SDE_VehicleDoor</defName>
+    <label>hangar door (1x5)</label>
+    <description>A heavily reinforced door wide enough for vehicles and crowds. It's slow to open and requires electricity, but can take a tremendous amount of punishment before failing. The door requires walls on either side to function.</description>
+    <graphicData>
+      <texPath>Things/Building/SecurityDoor_Vehicle/SecurityDoor_Vehicle_Underlayer_Mover</texPath>
+    </graphicData>
+    <uiIconPath>Things/Building/SecurityDoor_Vehicle/SecurityDoor_Vehicle_MenuIcon_south</uiIconPath>
+    <building>
+      <soundDoorOpenPowered>SecurityDoor_Open</soundDoorOpenPowered>
+      <soundDoorClosePowered>SecurityDoor_BeginClosing</soundDoorClosePowered>
+      <soundDoorOpenManual>SecurityDoor_Open</soundDoorOpenManual>
+      <soundDoorCloseManual>SecurityDoor_BeginClosing</soundDoorCloseManual>
+      <soundDoorCloseEnd>SecurityDoor_EndClosing</soundDoorCloseEnd>
+      <blueprintGraphicData>
+        <texPath>Things/Building/SecurityDoor_Vehicle/SecurityDoor_Vehicle_MenuIcon</texPath>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <texPath>Things/Building/SecurityDoor_Vehicle/SecurityDoor_Vehicle_Top</texPath>
+        <drawSize>(6, 2.4)</drawSize>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <texPath>Things/Building/SecurityDoor_Vehicle/SecurityDoor_Vehicle_Support</texPath>
+        <drawSize>(6, 2.4)</drawSize>
+      </doorSupportGraphic>
+      <upperMoverGraphic>
+        <texPath>Things/Building/SecurityDoor_Vehicle/SecurityDoor_Vehicle_Upper_Mover</texPath>
+      </upperMoverGraphic>
+    </building>
+    <statBases>
+      <WorkToBuild>6800</WorkToBuild>
+      <MaxHitPoints>715</MaxHitPoints>
+    </statBases>
+    <researchPrerequisites>
+      <li>SecurityDoor</li>
+    </researchPrerequisites>
+    <uiOrder>2022</uiOrder>
+    <costStuffCount>125</costStuffCount>
+    <costList>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+  </ThingDef>
+
+</Defs>

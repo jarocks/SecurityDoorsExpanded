@@ -1,0 +1,8 @@
+tools
+.venv
+.idea
+Source/bin
+Source/obj
+*.DotSettings*
+.junie
+.DS_Store

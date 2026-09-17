@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <DesignationDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>SDE_InstallVacBarrier</defName>
+    <texturePath>UI/Commands/SDE_InstallVacBarrier</texturePath>
+    <targetType>Thing</targetType>
+  </DesignationDef>
+
+  <JobDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>SDE_InstallVacBarrierJob</defName>
+    <driverClass>SecurityDoorsExpanded.JobDriver_InstallVacBarrier</driverClass>
+    <reportString>installing vac barrier on TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <WorkGiverDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>SDE_InstallVacBarrierWG</defName>
+    <label>install vac barrier</label>
+    <giverClass>SecurityDoorsExpanded.WorkGiver_InstallVacBarrier</giverClass>
+    <workType>Construction</workType>
+    <priorityInType>90</priorityInType>
+    <verb>install a vac barrier into</verb>
+    <gerund>installing a vac barrier into</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+</Defs>

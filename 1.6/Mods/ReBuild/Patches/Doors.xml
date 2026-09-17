@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="RB_LargeSecurityDoor"]</xpath>
+        <value>
+          <canGenerateDefaultDesignator>false</canGenerateDefaultDesignator>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="RB_LargeSecurityDoor"]/comps</xpath>
+        <value>
+          <li Class="SecurityDoorsExpanded.CompProperties_DoorBanners">
+            <lockdown>
+              <texPath>Things/Building/HoloBanner_Large/HoloBanner_Large_Lockdown</texPath>
+              <graphicClass>Graphic_Multi</graphicClass>
+              <shaderType>TransparentPostLight</shaderType>
+              <drawSize>(3, 1)</drawSize>
+            </lockdown>
+            <checkpoint>
+              <texPath>Things/Building/HoloBanner_Large/HoloBanner_Large_Checkpoint</texPath>
+              <graphicClass>Graphic_Multi</graphicClass>
+              <shaderType>TransparentPostLight</shaderType>
+              <drawSize>(3, 1)</drawSize>
+            </checkpoint>
+          </li>
+          <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacCheckpoint"/>
+          <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
+            <panelCost>4</panelCost>
+            <barrierPowerDraw>90</barrierPowerDraw>
+            <barrierGraphicData>
+              <texPath>Things/Building/VacBarrier_Large/VacBarrier_Large</texPath>
+              <graphicClass>Graphic_Multi</graphicClass>
+              <shaderType>TransparentPostLight</shaderType>
+              <drawSize>(4, 2)</drawSize>
+              <color>(142,142,142)</color>
+            </barrierGraphicData>
+          </li>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="RB_LargeSecurityDoor"]/thingClass</xpath>
+        <value>
+          <thingClass>SecurityDoorsExpanded.Building_VacDoor</thingClass>
+        </value>
+      </li>
+
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorSmall"]/graphicData/texPath</xpath>
+        <value>
+          <texPath>Things/Building/RB_SecurityDoor_Small/SecurityDoor_Small_Underlayer_Mover</texPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorSmall"]/uiIconPath</xpath>
+        <value>
+          <uiIconPath>Things/Building/RB_SecurityDoor_Small/SecurityDoor_Small_MenuIcon_south</uiIconPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorSmall"]/building/doorTopGraphic/texPath</xpath>
+        <value>
+          <texPath>Things/Building/RB_SecurityDoor_Small/SecurityDoor_Small_Top</texPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorSmall"]/building/doorSupportGraphic/texPath</xpath>
+        <value>
+          <texPath>Things/Building/RB_SecurityDoor_Small/SecurityDoor_Small_Support</texPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorSmall"]/building/upperMoverGraphic/texPath</xpath>
+        <value>
+          <texPath>Things/Building/RB_SecurityDoor_Small/SecurityDoor_Small_Upper_Mover</texPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorSmall"]/building/doorTopGraphic/drawSize</xpath>
+        <value>
+          <drawSize>(2.25, 2)</drawSize>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorSmall"]/building/doorSupportGraphic/drawSize</xpath>
+        <value>
+          <drawSize>(2.25, 2)</drawSize>
+        </value>
+      </li>
+
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorLarge"]/graphicData/texPath</xpath>
+        <value>
+          <texPath>Things/Building/LargeSecurityDoor/SecurityDoor3x1_Underlayer_Mover</texPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorLarge"]/uiIconPath</xpath>
+        <value>
+          <uiIconPath>Things/Building/LargeSecurityDoor/SecurityDoor3x1_MenuIcon_south</uiIconPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorLarge"]/building/doorTopGraphic/texPath</xpath>
+        <value>
+          <texPath>Things/Building/LargeSecurityDoor/SecurityDoor3x1_Top</texPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorLarge"]/building/doorSupportGraphic/texPath</xpath>
+        <value>
+          <texPath>Things/Building/LargeSecurityDoor/SecurityDoor3x1_Support</texPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorLarge"]/building/upperMoverGraphic/texPath</xpath>
+        <value>
+          <texPath>Things/Building/LargeSecurityDoor/SecurityDoor3x1_Upper_Mover</texPath>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorLarge"]/building/doorTopGraphic/drawSize</xpath>
+        <value>
+          <drawSize>(4, 2)</drawSize>
+        </value>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationReplace">
+        <xpath>Defs/ThingDef[defName="SDE_SecurityDoorLarge"]/building/doorSupportGraphic/drawSize</xpath>
+        <value>
+          <drawSize>(4, 2)</drawSize>
+        </value>
+      </li>
+
+      <li MayRequire="Ludeon.RimWorld.Anomaly" Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="SDE_VehicleDoor"]</xpath>
+        <match Class="PatchOperationSequence">
+          <operations>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="SDE_VehicleDoor"]/graphicData/texPath</xpath>
+              <value>
+                <texPath>Things/Building/RB_SecurityDoor_Vehicle/SecurityDoor_Vehicle_Underlayer_Mover</texPath>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="SDE_VehicleDoor"]/uiIconPath</xpath>
+              <value>
+                <uiIconPath>Things/Building/RB_SecurityDoor_Vehicle/SecurityDoor_Vehicle_MenuIcon_south</uiIconPath>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="SDE_VehicleDoor"]/building/doorTopGraphic/texPath</xpath>
+              <value>
+                <texPath>Things/Building/RB_SecurityDoor_Vehicle/SecurityDoor_Vehicle_Top</texPath>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="SDE_VehicleDoor"]/building/doorSupportGraphic/texPath</xpath>
+              <value>
+                <texPath>Things/Building/RB_SecurityDoor_Vehicle/SecurityDoor_Vehicle_Support</texPath>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="SDE_VehicleDoor"]/building/upperMoverGraphic/texPath</xpath>
+              <value>
+                <texPath>Things/Building/RB_SecurityDoor_Vehicle/SecurityDoor_Vehicle_Upper_Mover</texPath>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="SDE_VehicleDoor"]/building/doorTopGraphic/drawSize</xpath>
+              <value>
+                <drawSize>(6, 2)</drawSize>
+              </value>
+            </li>
+            <li Class="PatchOperationReplace">
+              <xpath>Defs/ThingDef[defName="SDE_VehicleDoor"]/building/doorSupportGraphic/drawSize</xpath>
+              <value>
+                <drawSize>(6, 2)</drawSize>
+              </value>
+            </li>
+          </operations>
+        </match>
+      </li>
+    </operations>
+  </Operation>
+
+</Patch>

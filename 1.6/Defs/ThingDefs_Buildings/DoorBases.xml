@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="DoorBase" Name="SDE_VacDoorBase" Abstract="True">
+    <thingClass>SecurityDoorsExpanded.Building_VacDoor</thingClass>
+    <statBases>
+      <Flammability>0</Flammability>
+    </statBases>
+    <rotatable>true</rotatable>
+    <useBlueprintGraphicAsGhost>true</useBlueprintGraphicAsGhost>
+    <stuffCategories Inherit="False">
+      <li>Metallic</li>
+    </stuffCategories>
+    <useStuffTerrainAffordance>false</useStuffTerrainAffordance>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationHotKey>Misc2</designationHotKey>
+    <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+    <placeWorkers>
+      <li>PlaceWorker_MultiCellDoor</li>
+    </placeWorkers>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <damageData>
+        <enabled>false</enabled>
+      </damageData>
+    </graphicData>
+    <building>
+      <soundDoorOpenPowered MayRequire="Ludeon.RimWorld.Anomaly">SecurityDoor_Open</soundDoorOpenPowered>
+      <soundDoorClosePowered MayRequire="Ludeon.RimWorld.Anomaly">SecurityDoor_BeginClosing</soundDoorClosePowered>
+      <soundDoorOpenManual MayRequire="Ludeon.RimWorld.Anomaly">SecurityDoor_Open</soundDoorOpenManual>
+      <soundDoorCloseManual MayRequire="Ludeon.RimWorld.Anomaly">SecurityDoor_BeginClosing</soundDoorCloseManual>
+      <soundDoorCloseEnd MayRequire="Ludeon.RimWorld.Anomaly">SecurityDoor_EndClosing</soundDoorCloseEnd>
+      <poweredDoorOpenSpeedFactor>4</poweredDoorOpenSpeedFactor>
+      <unpoweredDoorOpenSpeedFactor>2</unpoweredDoorOpenSpeedFactor>
+      <unpoweredDoorCloseSpeedFactor>2</unpoweredDoorCloseSpeedFactor>
+      <isAirtight>true</isAirtight>
+      <isSupportDoor>true</isSupportDoor>
+      <blueprintClass>Blueprint_Build</blueprintClass>
+      <blueprintGraphicData>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <shaderType>EdgeDetect</shaderType>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <graphicClass>Graphic_Multi</graphicClass>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <graphicClass>Graphic_Multi</graphicClass>
+      </doorSupportGraphic>
+      <upperMoverGraphic>
+        <graphicClass>Graphic_Single</graphicClass>
+      </upperMoverGraphic>
+    </building>
+    <comps>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Styleable"/>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_DockingPoint"/>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="SDE_VacDoorBase" Name="SDE_DoorSmallBase" Abstract="True">
+    <size>(1, 1)</size>
+    <building>
+      <blueprintGraphicData>
+        <drawSize>(2.25, 2.25)</drawSize>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <drawSize>(2.25, 2)</drawSize>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <drawSize>(2.25, 2)</drawSize>
+      </doorSupportGraphic>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>25</basePowerConsumption>
+      </li>
+      <li Class="SecurityDoorsExpanded.CompProperties_DoorBanners">
+        <lockdown>
+          <texPath>Things/Building/HoloBanner_Small/HoloBanner_Small_Lockdown</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(1, 1)</drawSize>
+        </lockdown>
+        <checkpoint>
+          <texPath>Things/Building/HoloBanner_Small/HoloBanner_Small_Checkpoint</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(1, 1)</drawSize>
+        </checkpoint>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacCheckpoint"/>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
+        <panelCost>2</panelCost>
+        <barrierPowerDraw>50</barrierPowerDraw>
+        <barrierGraphicData>
+          <texPath>Things/Building/VacBarrier_Small/VacBarrier_Small</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(2, 2)</drawSize>
+          <color>(142,142,142)</color>
+        </barrierGraphicData>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="SDE_VacDoorBase" Name="SDE_DoorMediumBase" Abstract="True">
+    <size>(2, 1)</size>
+    <building>
+      <blueprintGraphicData>
+        <drawSize>(2.99, 2.99)</drawSize>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <drawSize>(3, 2)</drawSize>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <drawSize>(3, 2)</drawSize>
+      </doorSupportGraphic>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+      </li>
+      <li Class="SecurityDoorsExpanded.CompProperties_DoorBanners">
+        <lockdown>
+          <texPath>Things/Building/HoloBanner_Medium/HoloBanner_Medium_Lockdown</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(2, 1)</drawSize>
+        </lockdown>
+        <checkpoint>
+          <texPath>Things/Building/HoloBanner_Medium/HoloBanner_Medium_Checkpoint</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(2, 1)</drawSize>
+        </checkpoint>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacCheckpoint"/>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
+        <panelCost>3</panelCost>
+        <barrierPowerDraw>75</barrierPowerDraw>
+        <barrierGraphicData>
+          <texPath>Things/Building/VacBarrier_Medium/VacBarrier_Medium</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(3, 2)</drawSize>
+          <color>(142,142,142)</color>
+        </barrierGraphicData>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="SDE_VacDoorBase" Name="SDE_DoorLargeBase" Abstract="True">
+    <size>(3, 1)</size>
+    <building>
+      <blueprintGraphicData>
+        <drawSize>(4.90, 4.90)</drawSize>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <drawSize>(4, 2)</drawSize>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <drawSize>(4, 2)</drawSize>
+      </doorSupportGraphic>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>75</basePowerConsumption>
+      </li>
+      <li Class="SecurityDoorsExpanded.CompProperties_DoorBanners">
+        <lockdown>
+          <texPath>Things/Building/HoloBanner_Large/HoloBanner_Large_Lockdown</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(3, 1)</drawSize>
+        </lockdown>
+        <checkpoint>
+          <texPath>Things/Building/HoloBanner_Large/HoloBanner_Large_Checkpoint</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(3, 1)</drawSize>
+        </checkpoint>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacCheckpoint"/>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
+        <panelCost>4</panelCost>
+        <barrierPowerDraw>90</barrierPowerDraw>
+        <barrierGraphicData>
+          <texPath>Things/Building/VacBarrier_Large/VacBarrier_Large</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(4, 2)</drawSize>
+          <color>(142,142,142)</color>
+        </barrierGraphicData>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="SDE_VacDoorBase" Name="SDE_DoorVehicleBase" Abstract="True">
+    <thingClass>SecurityDoorsExpanded.Building_VehicleDoor</thingClass>
+    <size>(5, 1)</size>
+    <building>
+      <blueprintGraphicData>
+        <drawSize>(5.97, 5.97)</drawSize>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <drawSize>(6, 2)</drawSize>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <drawSize>(6, 2)</drawSize>
+      </doorSupportGraphic>
+      <poweredDoorOpenSpeedFactor>3</poweredDoorOpenSpeedFactor>
+      <unpoweredDoorOpenSpeedFactor>1</unpoweredDoorOpenSpeedFactor>
+      <unpoweredDoorCloseSpeedFactor>1</unpoweredDoorCloseSpeedFactor>
+    </building>
+    <modExtensions>
+      <li Class="SecurityDoorsExpanded.DefModExtension_VehicleDoor">
+        <blockerDef>SDE_VehicleDoorBlocker</blockerDef>
+      </li>
+    </modExtensions>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>110</basePowerConsumption>
+      </li>
+      <li Class="SecurityDoorsExpanded.CompProperties_DoorBanners">
+        <lockdown>
+          <texPath>Things/Building/HoloBanner_Vehicle/HoloBanner_Vehicle_Lockdown</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(5, 1)</drawSize>
+        </lockdown>
+        <checkpoint>
+          <texPath>Things/Building/HoloBanner_Vehicle/HoloBanner_Vehicle_Checkpoint</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(5, 1)</drawSize>
+        </checkpoint>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
+        <panelCost>6</panelCost>
+        <barrierPowerDraw>120</barrierPowerDraw>
+        <barrierGraphicData>
+          <texPath>Things/Building/VacBarrier_Vehicle/VacBarrier_Vehicle</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(6, 2)</drawSize>
+          <color>(142,142,142)</color>
+        </barrierGraphicData>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="SDE_DoorSmallBase">
+    <defName>SDE_ArmoredSecurityDoorSmall</defName>
+    <label>blast door (1x1)</label>
+    <description>A heavily armored, blast-resistant door. It's expensive, slow to open, and requires electricity, but can take a tremendous amount of punishment before failing.</description>
+    <graphicData>
+      <texPath>Things/Building/BlastDoor_Small/BlastDoor_Small_Underlayer_Mover</texPath>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <uiIconPath>Things/Building/BlastDoor_Small/BlastDoor_Small_MenuIcon_south</uiIconPath>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/BlastDoor_Small/BlastDoor_Small_MenuIcon</texPath>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <texPath>Things/Building/BlastDoor_Small/BlastDoor_Small_Top</texPath>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <texPath>Things/Building/BlastDoor_Small/BlastDoor_Small_Support</texPath>
+      </doorSupportGraphic>
+      <upperMoverGraphic>
+        <texPath>Things/Building/BlastDoor_Small/BlastDoor_Small_Upper_Mover</texPath>
+      </upperMoverGraphic>
+      <unpoweredDoorOpenSpeedFactor>1</unpoweredDoorOpenSpeedFactor>
+      <unpoweredDoorCloseSpeedFactor>1</unpoweredDoorCloseSpeedFactor>
+    </building>
+    <statBases>
+      <WorkToBuild>5200</WorkToBuild>
+      <MaxHitPoints>1260</MaxHitPoints>
+    </statBases>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+      <li>
+        <damageDef>Thump</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+    </damageMultipliers>
+    <researchPrerequisites>
+      <li>SDE_ArmoredSecurityDoors</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <uiOrder>2019</uiOrder>
+    <costStuffCount>75</costStuffCount>
+    <costList>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <modExtensions>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorShutter"/>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows">
+        <normal>(0,255,0)</normal>
+        <checkpoint>(255,202,0)</checkpoint>
+        <lockdown>(255,0,0)</lockdown>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="SDE_DoorMediumBase">
+    <defName>SDE_ArmoredSecurityDoor</defName>
+    <label>blast door (1x2)</label>
+    <description>A heavily armored, blast-resistant door. It's expensive, slow to open, and requires electricity, but can take a tremendous amount of punishment before failing. The door requires walls on either side to function.</description>
+    <graphicData>
+      <texPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_Underlayer_Mover</texPath>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <uiIconPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_MenuIcon_south</uiIconPath>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_MenuIcon</texPath>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <texPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_Top</texPath>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <texPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_Support</texPath>
+      </doorSupportGraphic>
+      <upperMoverGraphic>
+        <texPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_Upper_Mover</texPath>
+      </upperMoverGraphic>
+      <unpoweredDoorOpenSpeedFactor>1</unpoweredDoorOpenSpeedFactor>
+      <unpoweredDoorCloseSpeedFactor>1</unpoweredDoorCloseSpeedFactor>
+    </building>
+    <statBases>
+      <WorkToBuild>6150</WorkToBuild>
+      <MaxHitPoints>1400</MaxHitPoints>
+    </statBases>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+      <li>
+        <damageDef>Thump</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+    </damageMultipliers>
+    <researchPrerequisites>
+      <li>SDE_ArmoredSecurityDoors</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <uiOrder>2020</uiOrder>
+    <costStuffCount>100</costStuffCount>
+    <costList>
+      <ComponentIndustrial>8</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <modExtensions>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorShutter"/>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows">
+        <normal>(0,255,0)</normal>
+        <checkpoint>(255,202,0)</checkpoint>
+        <lockdown>(255,0,0)</lockdown>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="SDE_DoorLargeBase">
+    <defName>SDE_ArmoredSecurityDoorLarge</defName>
+    <label>blast door (1x3)</label>
+    <description>A heavily armored, blast-resistant door. It's expensive, slow to open, and requires electricity, but can take a tremendous amount of punishment before failing. The door requires walls on either side to function.</description>
+    <graphicData>
+      <texPath>Things/Building/BlastDoor_Large/BlastDoor_Large_Underlayer_Mover</texPath>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <uiIconPath>Things/Building/BlastDoor_Large/BlastDoor_Large_MenuIcon_south</uiIconPath>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/BlastDoor_Large/BlastDoor_Large_MenuIcon</texPath>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <texPath>Things/Building/BlastDoor_Large/BlastDoor_Large_Top</texPath>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <texPath>Things/Building/BlastDoor_Large/BlastDoor_Large_Support</texPath>
+      </doorSupportGraphic>
+      <upperMoverGraphic>
+        <texPath>Things/Building/BlastDoor_Large/BlastDoor_Large_Upper_Mover</texPath>
+      </upperMoverGraphic>
+      <unpoweredDoorOpenSpeedFactor>1</unpoweredDoorOpenSpeedFactor>
+      <unpoweredDoorCloseSpeedFactor>1</unpoweredDoorCloseSpeedFactor>
+    </building>
+    <statBases>
+      <WorkToBuild>9250</WorkToBuild>
+      <MaxHitPoints>2100</MaxHitPoints>
+    </statBases>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+      <li>
+        <damageDef>Thump</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+    </damageMultipliers>
+    <researchPrerequisites>
+      <li>SDE_ArmoredSecurityDoors</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <uiOrder>2021</uiOrder>
+    <costStuffCount>150</costStuffCount>
+    <costList>
+      <ComponentIndustrial>12</ComponentIndustrial>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <modExtensions>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorShutter"/>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows">
+        <normal>(0,255,0)</normal>
+        <checkpoint>(255,202,0)</checkpoint>
+        <lockdown>(255,0,0)</lockdown>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="SDE_DoorVehicleBase">
+    <defName>SDE_ArmoredVehicleDoor</defName>
+    <label>hangar blast door (1x5)</label>
+    <description>A heavily armored, blast-resistant door that's wide enough for vehicles and crowds. It's expensive, slow to open, and requires electricity, but can take a tremendous amount of punishment before failing. The door requires walls on either side to function.</description>
+    <graphicData>
+      <texPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_Underlayer_Mover</texPath>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <uiIconPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_MenuIcon_south</uiIconPath>
+    <building>
+      <blueprintGraphicData>
+        <texPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_MenuIcon</texPath>
+      </blueprintGraphicData>
+      <doorTopGraphic>
+        <texPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_Top</texPath>
+      </doorTopGraphic>
+      <doorSupportGraphic>
+        <texPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_Support</texPath>
+      </doorSupportGraphic>
+      <upperMoverGraphic>
+        <texPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_Upper_Mover</texPath>
+      </upperMoverGraphic>
+      <poweredDoorOpenSpeedFactor>2</poweredDoorOpenSpeedFactor>
+    </building>
+    <statBases>
+      <WorkToBuild>15400</WorkToBuild>
+      <MaxHitPoints>3500</MaxHitPoints>
+    </statBases>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+      <li>
+        <damageDef>Thump</damageDef>
+        <multiplier>0.05</multiplier>
+      </li>
+    </damageMultipliers>
+    <researchPrerequisites>
+      <li>SDE_ArmoredSecurityDoors</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <uiOrder>2023</uiOrder>
+    <costStuffCount>300</costStuffCount>
+    <costList>
+      <ComponentIndustrial>20</ComponentIndustrial>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <modExtensions>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorShutter"/>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows">
+        <normal>(0,255,0)</normal>
+        <checkpoint>(255,202,0)</checkpoint>
+        <lockdown>(255,0,0)</lockdown>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+</Defs>

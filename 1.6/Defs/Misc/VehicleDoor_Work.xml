@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <DesignationDef>
+    <defName>SDE_OpenVehicleDoor</defName>
+    <texturePath>UI/Commands/HoldOpen</texturePath>
+    <targetType>Thing</targetType>
+  </DesignationDef>
+
+  <DesignationDef>
+    <defName>SDE_CloseVehicleDoor</defName>
+    <texturePath>UI/Commands/SDE_Close</texturePath>
+    <targetType>Thing</targetType>
+  </DesignationDef>
+
+  <JobDef>
+    <defName>SDE_OpenVehicleDoorJob</defName>
+    <driverClass>SecurityDoorsExpanded.JobDriver_OperateVehicleDoor</driverClass>
+    <reportString>opening TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>SDE_CloseVehicleDoorJob</defName>
+    <driverClass>SecurityDoorsExpanded.JobDriver_OperateVehicleDoor</driverClass>
+    <reportString>closing TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <WorkGiverDef Name="SDE_OperateVehicleDoorWGBase" Abstract="True">
+    <workType>BasicWorker</workType>
+    <priorityInType>500</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef ParentName="SDE_OperateVehicleDoorWGBase">
+    <defName>SDE_OpenVehicleDoorWG</defName>
+    <label>open hangar doors</label>
+    <giverClass>SecurityDoorsExpanded.WorkGiver_OpenVehicleDoor</giverClass>
+    <verb>open</verb>
+    <gerund>opening</gerund>
+  </WorkGiverDef>
+
+  <WorkGiverDef ParentName="SDE_OperateVehicleDoorWGBase">
+    <defName>SDE_CloseVehicleDoorWG</defName>
+    <label>close hangar doors</label>
+    <giverClass>SecurityDoorsExpanded.WorkGiver_CloseVehicleDoor</giverClass>
+    <verb>close</verb>
+    <gerund>closing</gerund>
+  </WorkGiverDef>
+
+</Defs>

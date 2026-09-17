@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <SDE_LockMode>Unpowered lockdown</SDE_LockMode>
+  <SDE_LockModeDesc>Prevents colonists from opening the door when it's unpowered.</SDE_LockModeDesc>
+
+  <SDE_InstallVacBarrier>Install vac barrier</SDE_InstallVacBarrier>
+  <SDE_InstallVacBarrierDesc>An integrated ultrasonic barrier that prevents depressurization in space. The field compresses air molecules near the threshold, preventing gases from escaping while allowing people to freely travel through it.\n\nRequires {0} gravlite panels.</SDE_InstallVacBarrierDesc>
+  <SDE_VacBarrierInstalled>Vac barrier installed in {0}.</SDE_VacBarrierInstalled>
+  <SDE_NeedGravlitePanels>need {0} gravlite panels</SDE_NeedGravlitePanels>
+  <SDE_CancelVacBarrierInstall>Cancel</SDE_CancelVacBarrierInstall>
+
+  <SDE_VacCheckpoint>Vac Checkpoint</SDE_VacCheckpoint>
+  <SDE_VacCheckpointDesc>A basic VacSuit check. Requires a minimum vacuum resistance of {0} to prevent unsuited colonists from wandering into the vacuum of space.\n\nColonists will ignore this checkpoint {1} if both sides are pressurized, or in the event of a catastrophic hull breach.</SDE_VacCheckpointDesc>
+  <SDE_BypassDrafted>when drafted, </SDE_BypassDrafted>
+
+  <SDE_InstallNeeds>Vac barrier install: needs {0} {1}</SDE_InstallNeeds>
+  <SDE_Installing>Installing vac barrier: {0}</SDE_Installing>
+  <SDE_VacBarrierActive>Vac barrier active</SDE_VacBarrierActive>
+  <SDE_Lockdown>Locked down: {0}</SDE_Lockdown>
+  <SDE_NoPower>no power</SDE_NoPower>
+  <SDE_BrokenDown>broken down</SDE_BrokenDown>
+  <SDE_CheckpointActive>Active (required vacuum resistance: {0})</SDE_CheckpointActive>
+  <SDE_CheckpointInactive>Inactive</SDE_CheckpointInactive>
+
+  <SDE_SettingStatus>Show door status:</SDE_SettingStatus>
+  <SDE_SettingStatusDesc>Displays holograms on doors which locked down or have active vac checkpoints</SDE_SettingStatusDesc>
+
+  <SDE_SettingDraftedBypass>Drafted pawns bypass vac checkpoints:</SDE_SettingDraftedBypass>
+  <SDE_SettingDraftedBypassDesc>Whether drafted colonists should ignore vacuum checkpoints, because who needs VacSuits after all?</SDE_SettingDraftedBypassDesc>
+
+  <SDE_SettingVacThreshold>Minimum vacuum resistance for Vac Checkpoint: {0}</SDE_SettingVacThreshold>
+  <SDE_SettingVacEstimate>Around {0} of resistance to vacuum exposure, with death in {1}.</SDE_SettingVacEstimate>
+  <SDE_SettingVacResistant>Full vacuum resistance.</SDE_SettingVacResistant>
+
+  <SDE_DockingPoint>Docking point</SDE_DockingPoint>
+  <SDE_DockingPointDesc>Toggles whether this door is highlighted during gravship placement to assist with landings</SDE_DockingPointDesc>
+
+  <SDE_VehicleDoorOpen>Open door</SDE_VehicleDoorOpen>
+  <SDE_VehicleDoorClose>Close door</SDE_VehicleDoorClose>
+  <SDE_VehicleDoorCancel>Cancel</SDE_VehicleDoorCancel>
+  <SDE_VehicleDoorStateOpening>Opening...</SDE_VehicleDoorStateOpening>
+  <SDE_VehicleDoorStateClosing>Closing...</SDE_VehicleDoorStateClosing>
+  <SDE_VehicleDoorStateBlocked>Closing: door obstructed</SDE_VehicleDoorStateBlocked>
+
+</LanguageData>

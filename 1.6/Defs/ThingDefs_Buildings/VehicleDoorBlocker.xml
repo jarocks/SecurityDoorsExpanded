@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Name="SDE_VehicleDoorBlockerBase" Abstract="True">
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <label>vehicle door</label>
+    <selectable>false</selectable>
+    <useHitPoints>false</useHitPoints>
+    <drawerType>None</drawerType>
+    <passability>Standable</passability>
+    <pathCost>0</pathCost>
+    <fillPercent>0</fillPercent>
+    <blockLight>false</blockLight>
+    <blockWind>false</blockWind>
+    <holdsRoof>false</holdsRoof>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <isSaveable>false</isSaveable>
+    <building>
+      <isEdifice>false</isEdifice>
+      <isFence>true</isFence>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+  </ThingDef>
+
+  <ThingDef ParentName="SDE_VehicleDoorBlockerBase">
+    <defName>SDE_VehicleDoorBlocker</defName>
+    <size>(5, 1)</size>
+  </ThingDef>
+
+</Defs>

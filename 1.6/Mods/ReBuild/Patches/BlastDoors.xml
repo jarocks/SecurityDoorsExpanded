@@ -1,0 +1,113 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<Patch>-->
+<!--  <Operation Class="PatchOperationConditional">-->
+<!--    <xpath>Defs/ThingDef[@Name="Wall"]/graphicData/texPath[text()="Things/Building/RB_Linked/V1_AlternativeWall"]</xpath>-->
+<!--    <match Class="PatchOperationSequence">-->
+<!--      <operations>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoorSmall"]/building/doorSupportGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V1_BlastDoor_Small/BlastDoor_Small_Support</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoorSmall"]/building/doorTopGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V1_BlastDoor_Small/BlastDoor_Small_Top</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoor"]/building/doorSupportGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V1_BlastDoor_Medium/BlastDoor_Medium_Support</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoor"]/building/doorTopGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V1_BlastDoor_Medium/BlastDoor_Medium_Top</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoorLarge"]/building/doorSupportGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V1_BlastDoor_Large/BlastDoor_Large_Support</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoorLarge"]/building/doorTopGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V1_BlastDoor_Large/BlastDoor_Large_Top</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredVehicleDoor"]/building/doorSupportGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V1_BlastDoor_Vehicle/BlastDoor_Vehicle_Support</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredVehicleDoor"]/building/doorTopGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V1_BlastDoor_Vehicle/BlastDoor_Vehicle_Top</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--      </operations>-->
+<!--    </match>-->
+<!--  </Operation>-->
+<!--  <Operation Class="PatchOperationConditional">-->
+<!--    <xpath>Defs/ThingDef[@Name="Wall"]/graphicData/texPath[text()="Things/Building/Linked/Wall"]</xpath>-->
+<!--    <match Class="PatchOperationSequence">-->
+<!--      <operations>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoorSmall"]/building/doorSupportGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V2_BlastDoor_Small/BlastDoor_Small_Support</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoorSmall"]/building/doorTopGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V2_BlastDoor_Small/BlastDoor_Small_Top</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoor"]/building/doorSupportGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V2_BlastDoor_Medium/BlastDoor_Medium_Support</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoor"]/building/doorTopGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V2_BlastDoor_Medium/BlastDoor_Medium_Top</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoorLarge"]/building/doorSupportGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V2_BlastDoor_Large/BlastDoor_Large_Support</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredSecurityDoorLarge"]/building/doorTopGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V2_BlastDoor_Large/BlastDoor_Large_Top</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredVehicleDoor"]/building/doorSupportGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V2_BlastDoor_Vehicle/BlastDoor_Vehicle_Support</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--        <li Class="PatchOperationReplace">-->
+<!--          <xpath>Defs/ThingDef[defName="SDE_ArmoredVehicleDoor"]/building/doorTopGraphic/texPath</xpath>-->
+<!--          <value>-->
+<!--            <texPath>Things/Building/RB_V2_BlastDoor_Vehicle/BlastDoor_Vehicle_Top</texPath>-->
+<!--          </value>-->
+<!--        </li>-->
+<!--      </operations>-->
+<!--    </match>-->
+<!--  </Operation>-->
+<!--</Patch>-->

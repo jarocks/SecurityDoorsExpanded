@@ -1,0 +1,8 @@
+<loadFolders>
+  <v1.6>
+    <li>/</li>
+    <li>1.6</li>
+    <li IfModActive="Ludeon.RimWorld.Anomaly">1.6/Mods/Anomaly</li>
+    <li IfModActive="ReBuild.COTR.DoorsAndCorners">1.6/Mods/ReBuild</li>
+  </v1.6>
+</loadFolders>

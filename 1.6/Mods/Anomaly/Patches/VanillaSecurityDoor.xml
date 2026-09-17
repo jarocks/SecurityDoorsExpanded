@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/comps</xpath>
+    <value>
+      <li Class="SecurityDoorsExpanded.CompProperties_DoorBanners">
+        <lockdown>
+          <texPath>Things/Building/HoloBanner_Medium/HoloBanner_Medium_Lockdown</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(2, 1)</drawSize>
+        </lockdown>
+        <checkpoint>
+          <texPath>Things/Building/HoloBanner_Medium/HoloBanner_Medium_Checkpoint</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(2, 1)</drawSize>
+        </checkpoint>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacCheckpoint"/>
+      <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
+        <panelCost>3</panelCost>
+        <barrierPowerDraw>75</barrierPowerDraw>
+        <barrierGraphicData>
+          <texPath>Things/Building/VacBarrier_Medium/VacBarrier_Medium</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(3, 2)</drawSize>
+          <color>(142,142,142)</color>
+        </barrierGraphicData>
+      </li>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/thingClass</xpath>
+    <value>
+      <thingClass>SecurityDoorsExpanded.Building_VacDoor</thingClass>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/stuffCategories</xpath>
+    <value>
+      <stuffCategories Inherit="False">
+        <li>Metallic</li>
+      </stuffCategories>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/costList</xpath>
+    <value>
+      <costStuffCount>50</costStuffCount>
+      <costList>
+        <ComponentIndustrial>2</ComponentIndustrial>
+      </costList>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/statBases/MaxHitPoints</xpath>
+    <value>
+      <MaxHitPoints>285</MaxHitPoints>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/statBases/WorkToBuild</xpath>
+    <value>
+      <WorkToBuild>2730</WorkToBuild>
+    </value>
+  </Operation>
+  
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/graphicData/color</xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/uiIconColor</xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/building/doorTopGraphic/color</xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/building/doorSupportGraphic/color</xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/building/upperMoverGraphic/color</xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/label</xpath>
+    <value>
+      <label>security door (1x2)</label>
+    </value>
+  </Operation>
+
+</Patch>
