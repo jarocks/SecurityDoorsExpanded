@@ -14,7 +14,7 @@ namespace SecurityDoorsExpanded
     
     public class DefModExtension_DoorArrows : DefModExtension
     {
-        public Color off = Color.white;
+        public Color off = Color.gray;
         public Color normal = Color.green;
         public Color checkpoint = Color.yellow;
         public Color lockdown = Color.red;
@@ -25,33 +25,25 @@ namespace SecurityDoorsExpanded
     {
         private bool tmpStuckOpen;
         
-        [Unsaved(false)] private bool compsResolved;
+        [Unsaved] private Graphic upperMoverGraphicInt;
+        [Unsaved] private CompVacCheckpoint cachedCheckpoint;
+        [Unsaved] private CompVacDoor cachecVacBarrier;
+        [Unsaved] private DefModExtension_DoorShutter cachedShutters;
+        [Unsaved] private DefModExtension_DoorArrows cachedArrows;
+        [Unsaved] private Graphic moverGraphicInt;
+        [Unsaved] private Color moverGraphicColor;
+        
+        // 1 = shutter held open, 0 = vanilla door tracking
+        [Unsaved] private float shutterOpenPct;
+        
+        public CompVacCheckpoint Checkpoint => cachedCheckpoint;
 
-        [Unsaved(false)] private Graphic upperMoverGraphicInt;
-        [Unsaved(false)] private CompVacCheckpoint checkpointInt;
-        [Unsaved(false)] private CompVacDoor compInt;
-        [Unsaved(false)] private DefModExtension_DoorShutter shutterInt;
-        [Unsaved(false)] private DefModExtension_DoorArrows arrowsInt;
+        public CompVacDoor VacBarrier => cachecVacBarrier;
 
-        private void EnsureLookups()
-        {
-            if (compsResolved) return;
+        public DefModExtension_DoorShutter Shutter => cachedShutters;
 
-            compsResolved = true;
-            checkpointInt = GetComp<CompVacCheckpoint>();
-            compInt = GetComp<CompVacDoor>();
-            shutterInt = def.GetModExtension<DefModExtension_DoorShutter>();
-            arrowsInt = def.GetModExtension<DefModExtension_DoorArrows>();
-        }
-
-        public CompVacCheckpoint Checkpoint { get { EnsureLookups(); return checkpointInt; } }
-
-        public CompVacDoor Comp { get { EnsureLookups(); return compInt; } }
-
-        public DefModExtension_DoorShutter Shutter { get { EnsureLookups(); return shutterInt; } }
-
-        public DefModExtension_DoorArrows Arrows { get { EnsureLookups(); return arrowsInt; } }
-
+        public DefModExtension_DoorArrows Arrows => cachedArrows;
+        
         private Color ArrowColor
         {
             get
@@ -65,18 +57,7 @@ namespace SecurityDoorsExpanded
                 return lockedDown ? arrows.lockdown : arrows.checkpoint;
             }
         }
-
-        [Unsaved(false)] private CompForbiddable forbiddableInt;
-        public CompForbiddable Forbiddable => forbiddableInt ?? (forbiddableInt = GetComp<CompForbiddable>());
-
-        [Unsaved(false)] private Graphic moverGraphicInt;
-
-        [Unsaved(false)] private Color moverGraphicColor;
-
-        // 1 = shutter held open, 0 = vanilla door tracking
-        [Unsaved(false)] private float shutterOpenPct;
-
-
+        
         private Graphic MoverGraphic
         {
             get
@@ -107,11 +88,16 @@ namespace SecurityDoorsExpanded
             base.SpawnSetup(map, respawningAfterLoad);
             shutterOpenPct = Shutter != null && DoorPowerOn ? 1f : 0f;
             lockedDown = LockdownActive;
+            
+            cachedCheckpoint = GetComp<CompVacCheckpoint>();
+            cachecVacBarrier = GetComp<CompVacDoor>();
+            cachedShutters = def.GetModExtension<DefModExtension_DoorShutter>();
+            cachedArrows = def.GetModExtension<DefModExtension_DoorArrows>();
         }
 
-        public override bool ExchangeVacuum => Comp?.VacBarrierActive != true && base.ExchangeVacuum;
+        public override bool ExchangeVacuum => VacBarrier?.VacBarrierActive != true && base.ExchangeVacuum;
 
-        protected override float TempEqualizeRate => Comp?.VacBarrierActive == true ? 0f : base.TempEqualizeRate;
+        protected override float TempEqualizeRate => VacBarrier?.VacBarrierActive == true ? 0f : base.TempEqualizeRate;
 
         public override bool FreePassage => Checkpoint?.Active != true && base.FreePassage;
         
@@ -147,7 +133,7 @@ namespace SecurityDoorsExpanded
 
         public bool lockedDown;
 
-        public bool LockdownActive => failSecure && !DoorPowerOn || Forbiddable?.Forbidden == true;
+        public bool LockdownActive => failSecure && !DoorPowerOn || compForbiddable?.Forbidden == true;
 
         private static readonly Texture2D LockedIcon = ContentFinder<Texture2D>.Get("UI/Commands/SDE_LockModeSecure");
 
@@ -249,9 +235,9 @@ namespace SecurityDoorsExpanded
         public override string GetInspectString()
         {
             string line = null;
-            if (lockedDown && Forbiddable?.Forbidden != true)
+            if (lockedDown && compForbiddable?.Forbidden != true)
             {
-                TaggedString reason = (this.IsBrokenDown() ? "SDE_BrokenDown" : "SDE_NoPower").Translate();
+                var reason = (this.IsBrokenDown() ? "SDE_BrokenDown" : "SDE_NoPower").Translate();
                 line = "SDE_Lockdown".Translate(reason).Colorize(ColorLibrary.RedReadable);
             }
 

@@ -17,7 +17,13 @@
         <texPath>Things/Building/BlastDoor_Small/BlastDoor_Small_Top</texPath>
       </doorTopGraphic>
       <doorSupportGraphic>
-        <texPath>Things/Building/BlastDoor_Small/BlastDoor_Small_Support</texPath>
+        <texPath>Things/Building/BlastDoor/BlastDoor_Support_Atlas</texPath>
+        <graphicClass>SecurityDoorsExpanded.Graphic_LinkedSupport</graphicClass>
+        <drawSize>(2, 2)</drawSize>
+        <linkFlags>
+          <li>Wall</li>
+          <li>Rock</li>
+        </linkFlags>
       </doorSupportGraphic>
       <upperMoverGraphic>
         <texPath>Things/Building/BlastDoor_Small/BlastDoor_Small_Upper_Mover</texPath>
@@ -76,7 +82,13 @@
         <texPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_Top</texPath>
       </doorTopGraphic>
       <doorSupportGraphic>
-        <texPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_Support</texPath>
+        <texPath>Things/Building/BlastDoor/BlastDoor_Support_Atlas</texPath>
+        <graphicClass>SecurityDoorsExpanded.Graphic_LinkedSupport</graphicClass>
+        <drawSize>(2, 2)</drawSize>
+        <linkFlags>
+          <li>Wall</li>
+          <li>Rock</li>
+        </linkFlags>
       </doorSupportGraphic>
       <upperMoverGraphic>
         <texPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_Upper_Mover</texPath>
@@ -135,7 +147,13 @@
         <texPath>Things/Building/BlastDoor_Large/BlastDoor_Large_Top</texPath>
       </doorTopGraphic>
       <doorSupportGraphic>
-        <texPath>Things/Building/BlastDoor_Large/BlastDoor_Large_Support</texPath>
+        <texPath>Things/Building/BlastDoor/BlastDoor_Support_Atlas</texPath>
+        <graphicClass>SecurityDoorsExpanded.Graphic_LinkedSupport</graphicClass>
+        <drawSize>(2, 2)</drawSize>
+        <linkFlags>
+          <li>Wall</li>
+          <li>Rock</li>
+        </linkFlags>
       </doorSupportGraphic>
       <upperMoverGraphic>
         <texPath>Things/Building/BlastDoor_Large/BlastDoor_Large_Upper_Mover</texPath>
@@ -194,12 +212,19 @@
         <texPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_Top</texPath>
       </doorTopGraphic>
       <doorSupportGraphic>
-        <texPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_Support</texPath>
+        <texPath>Things/Building/BlastDoor/BlastDoor_Support_Atlas</texPath>
+        <graphicClass>SecurityDoorsExpanded.Graphic_LinkedSupport</graphicClass>
+        <drawSize>(2, 2)</drawSize>
+        <linkFlags>
+          <li>Wall</li>
+          <li>Rock</li>
+        </linkFlags>
       </doorSupportGraphic>
       <upperMoverGraphic>
         <texPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_Upper_Mover</texPath>
       </upperMoverGraphic>
       <poweredDoorOpenSpeedFactor>2</poweredDoorOpenSpeedFactor>
+      <poweredDoorCloseSpeedFactor>2</poweredDoorCloseSpeedFactor>
     </building>
     <statBases>
       <WorkToBuild>15400</WorkToBuild>

@@ -52,6 +52,11 @@
     <comps>
       <li Class="CompProperties_Breakdownable"/>
       <li Class="CompProperties_Styleable"/>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>SDE_DoorController</li>
+        </linkableFacilities>
+      </li>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_DockingPoint"/>
     </comps>
   </ThingDef>
@@ -211,6 +216,7 @@
         <drawSize>(6, 2)</drawSize>
       </doorSupportGraphic>
       <poweredDoorOpenSpeedFactor>3</poweredDoorOpenSpeedFactor>
+      <poweredDoorCloseSpeedFactor>3</poweredDoorCloseSpeedFactor>
       <unpoweredDoorOpenSpeedFactor>1</unpoweredDoorOpenSpeedFactor>
       <unpoweredDoorCloseSpeedFactor>1</unpoweredDoorCloseSpeedFactor>
     </building>

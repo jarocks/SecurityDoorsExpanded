@@ -14,9 +14,9 @@ namespace SecurityDoorsExpanded
     [StaticConstructorOnStartup]
     public class Building_VehicleDoor : Building_VacDoor
     {
-        [Unsaved(false)] private Thing blockerInt;
-        [Unsaved(false)] private bool blockerDefResolved;
-        [Unsaved(false)] private ThingDef blockerDefInt;
+        [Unsaved] private Thing blockerInt;
+        [Unsaved] private bool blockerDefResolved;
+        [Unsaved] private ThingDef blockerDefInt;
 
         private ThingDef BlockerDef
         {

@@ -30,19 +30,8 @@ namespace SecurityDoorsExpanded
         public float installWorkDone;
 
         public const float InstallWork = 900f;
-
-        private CompPowerTrader powerComp;
-
-        public bool PowerOn
-        {
-            get
-            {
-                var power = powerComp ?? (powerComp = parent.GetComp<CompPowerTrader>());
-                return power?.PowerOn == true;
-            }
-        }
-
-        public bool VacBarrierActive => vacBarrierInstalled && PowerOn;
+        
+        public bool VacBarrierActive => vacBarrierInstalled && (parent as Building_Door)?.DoorPowerOn != false;
 
         private Graphic BarrierGraphic => Props.barrierGraphicData?.Graphic;
 
@@ -79,11 +68,11 @@ namespace SecurityDoorsExpanded
 
         private void UpdatePowerDraw()
         {
-            var power = powerComp ?? (powerComp = parent.GetComp<CompPowerTrader>());
-            if (power == null) return;
+            var powerComp = (parent as Building_Door)?.powerComp;
+            if (powerComp == null) return;
 
-            var draw = power.Props.PowerConsumption + (vacBarrierInstalled ? Props.barrierPowerDraw : 0f);
-            power.PowerOutput = 0f - draw;
+            var draw = powerComp.Props.PowerConsumption + (vacBarrierInstalled ? Props.barrierPowerDraw : 0f);
+            powerComp.PowerOutput = 0f - draw;
         }
 
         public override void ReceiveCompSignal(string signal)
@@ -232,7 +221,7 @@ namespace SecurityDoorsExpanded
         public override string CompInspectStringExtra()
         {
             var sb = new StringBuilder();
-            if (vacBarrierInstalled && PowerOn)
+            if (vacBarrierInstalled && (parent as Building_Door)?.DoorPowerOn != false)
             {
                 sb.AppendInNewLine("SDE_VacBarrierActive".Translate().Colorize(ColorLibrary.Green));
             }
@@ -241,8 +230,7 @@ namespace SecurityDoorsExpanded
             {
                 sb.AppendInNewLine(panelsDelivered
                     ? "SDE_Installing".Translate(InstallProgress.ToStringPercent())
-                    : "SDE_InstallNeeds".Translate(
-                        Props.panelCost, DefRefs.GravlitePanel.label));
+                    : "SDE_InstallNeeds".Translate(Props.panelCost, DefRefs.GravlitePanel.label));
             }
 
             return sb.Length > 0 ? sb.ToString() : null;

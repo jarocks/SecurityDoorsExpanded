@@ -20,11 +20,11 @@ namespace SecurityDoorsExpanded
 
         private bool checkpointEnabled;
 
-        [Unsaved(false)] private bool inAtmosphere;
+        [Unsaved] private bool inAtmosphere;
 
-        [Unsaved(false)] public bool frontActive;
+        [Unsaved] public bool frontActive;
 
-        [Unsaved(false)] public bool Active;
+        [Unsaved] public bool Active;
 
         private static readonly Texture2D VacRestrictIcon = ContentFinder<Texture2D>.Get("UI/Commands/SDE_Checkpoint");
 

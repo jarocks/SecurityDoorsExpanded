@@ -18,7 +18,7 @@ namespace SecurityDoorsExpanded
 
             var root = PrefabUtility.GetRoot(__instance.AdjustedMouseCell, gravship.Bounds.Size, 
                 marker.GravshipRotation);
-            DockingPointOverlay.DrawFor(gravship, root);
+            Graphic_DockingPointOverlay.DrawFor(gravship, root);
         }
     }
 }

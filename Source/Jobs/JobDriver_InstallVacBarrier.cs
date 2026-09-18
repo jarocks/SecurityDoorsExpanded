@@ -9,7 +9,7 @@ namespace SecurityDoorsExpanded
     {
         private Thing DoorThing => job.GetTarget(TargetIndex.A).Thing;
 
-        private CompVacDoor Comp => (DoorThing as Building_VacDoor)?.Comp;
+        private CompVacDoor CompVacBarrier => (DoorThing as Building_VacDoor)?.VacBarrier;
 
         private bool NeedsPanels => job.GetTarget(TargetIndex.B).IsValid;
 
@@ -28,7 +28,7 @@ namespace SecurityDoorsExpanded
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             this.FailOn(() =>
             {
-                var comp = Comp;
+                var comp = CompVacBarrier;
                 return comp == null || comp.vacBarrierInstalled ||
                        DoorThing.Map.designationManager.DesignationOn(
                            DoorThing, SDE_DefOf.SDE_InstallVacBarrier) == null;
@@ -46,7 +46,7 @@ namespace SecurityDoorsExpanded
                 {
                     // Use materials upon delivery
                     pawn.carryTracker.CarriedThing?.Destroy();
-                    Comp.panelsDelivered = true;
+                    CompVacBarrier.panelsDelivered = true;
                 });
             }
             else
@@ -62,7 +62,7 @@ namespace SecurityDoorsExpanded
             var toil = ToilMaker.MakeToil("InstallVacBarrier");
             toil.tickAction = delegate
             {
-                var comp = Comp;
+                var comp = CompVacBarrier;
                 var actor = toil.actor;
                 comp.installWorkDone += actor.GetStatValue(StatDefOf.ConstructionSpeed) * 1.7f;
                 actor.skills?.Learn(SkillDefOf.Construction, 0.05f);
@@ -74,7 +74,7 @@ namespace SecurityDoorsExpanded
             toil.activeSkill = () => SkillDefOf.Construction;
 
             return toil
-                .WithProgressBar(TargetIndex.A, () => Comp?.InstallProgress ?? 0f)
+                .WithProgressBar(TargetIndex.A, () => CompVacBarrier?.InstallProgress ?? 0f)
                 .WithEffect(EffecterDefOf.ConstructMetal, TargetIndex.A)
                 .FailOnDespawnedNullOrForbidden(TargetIndex.A)
                 .FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);

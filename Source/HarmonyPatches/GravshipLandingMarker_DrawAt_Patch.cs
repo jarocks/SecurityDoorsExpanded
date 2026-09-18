@@ -23,7 +23,7 @@ namespace SecurityDoorsExpanded
         {
             if (!Visible(__instance)) return;
 
-            DockingPointOverlay.DrawFor(__instance.gravship, __instance.Position);
+            Graphic_DockingPointOverlay.DrawFor(__instance.gravship, __instance.Position);
         }
     }
 }

@@ -25,6 +25,11 @@
               <drawSize>(3, 1)</drawSize>
             </checkpoint>
           </li>
+          <li Class="CompProperties_AffectedByFacilities">
+            <linkableFacilities>
+              <li>SDE_DoorController</li>
+            </linkableFacilities>
+          </li>
           <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacCheckpoint"/>
           <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
             <panelCost>4</panelCost>
