@@ -26,7 +26,7 @@ namespace SecurityDoorsExpanded
         public override bool HasJobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
             var comp = t.TryGetComp<CompVacDoor>();
-            if (comp?.vacBarrierInstalled != false ||
+            if (comp?.vacBarrierInstalled == true ||
                 t.Map.designationManager.DesignationOn(t, SDE_DefOf.SDE_InstallVacBarrier) == null ||
                 t.IsForbidden(pawn) || t.IsBurning() || !pawn.CanReserve(t, 1, -1, null, forced))
             {

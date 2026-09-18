@@ -3,6 +3,7 @@
   <name>Security and Blast Doors Expanded</name>
   <author>LadySylveon</author>
   <packageId>Jarocks.SecurityDoorsExpanded</packageId>
+  <modVersion>1.1.2</modVersion>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>

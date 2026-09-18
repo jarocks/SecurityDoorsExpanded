@@ -31,7 +31,7 @@ namespace SecurityDoorsExpanded
 
         public const float InstallWork = 900f;
         
-        public bool VacBarrierActive => vacBarrierInstalled && (parent as Building_Door)?.DoorPowerOn != false;
+        public bool VacBarrierActive => vacBarrierInstalled && (parent as Building_Door)?.DoorPowerOn == true;
 
         private Graphic BarrierGraphic => Props.barrierGraphicData?.Graphic;
 
@@ -221,7 +221,7 @@ namespace SecurityDoorsExpanded
         public override string CompInspectStringExtra()
         {
             var sb = new StringBuilder();
-            if (vacBarrierInstalled && (parent as Building_Door)?.DoorPowerOn != false)
+            if (vacBarrierInstalled && (parent as Building_Door)?.DoorPowerOn == true)
             {
                 sb.AppendInNewLine("SDE_VacBarrierActive".Translate().Colorize(ColorLibrary.Green));
             }
