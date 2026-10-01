@@ -145,17 +145,14 @@ namespace SecurityDoorsExpanded
             ?? Map.designationManager.DesignationOn(this, SDE_DefOf.SDE_CloseVehicleDoor);
 
         public bool ManualOrderPending => ManualOrder != null;
+        
+        public void StartOpening() => DoorTrySet();
 
-        public bool Operable => Spawned && !StuckOpen && !this.IsBrokenDown();
+        public void StartClosing() => DoorTrySet(false);
 
-        public void StartOpening() => ToggleDoorState(true);
-
-        public void StartClosing() => ToggleDoorState(false);
-
-        private void ToggleDoorState(bool open)
+        private void DoorTrySet(bool open = true)
         {
-            if (!Operable) return;
-
+            if (!Spawned || StuckOpen) return;
             var orderDef = open ? SDE_DefOf.SDE_OpenVehicleDoor : SDE_DefOf.SDE_CloseVehicleDoor;
             if (ManualOrder?.def == orderDef) return;
 
@@ -218,12 +215,12 @@ namespace SecurityDoorsExpanded
                     : (holdOpenInt ? "SDE_VehicleDoorClose" : "SDE_VehicleDoorOpen")).Translate(),
                 icon = pending ? CancelIcon : (holdOpenInt ? CloseIcon : OpenIcon),
                 hotKey = KeyBindingDefOf.Misc3,
-                action = () => ToggleDoorState(!holdOpenInt)
+                action = () => DoorTrySet(!holdOpenInt)
             };
 
-            if (!Operable)
+            if (lockedDown || StuckOpen)
             {
-                command.Disable();
+                command.Disable((lockedDown ? "SDE_VehicleDoorDisabledLockdown" : "SDE_VehicleDoorDisabledInoperable").Translate());
             }
             yield return command;
         }

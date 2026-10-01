@@ -20,6 +20,7 @@
   <SDE_Lockdown>Locked down: {0}</SDE_Lockdown>
   <SDE_NoPower>no power</SDE_NoPower>
   <SDE_BrokenDown>broken down</SDE_BrokenDown>
+  <SDE_Forbidden>forbidden</SDE_Forbidden>
   <SDE_CheckpointActive>Active (required vacuum resistance: {0})</SDE_CheckpointActive>
   <SDE_CheckpointInactive>Inactive</SDE_CheckpointInactive>
 
@@ -42,5 +43,7 @@
   <SDE_VehicleDoorStateOpening>Opening...</SDE_VehicleDoorStateOpening>
   <SDE_VehicleDoorStateClosing>Closing...</SDE_VehicleDoorStateClosing>
   <SDE_VehicleDoorStateBlocked>Closing: door obstructed</SDE_VehicleDoorStateBlocked>
+  <SDE_VehicleDoorDisabledLockdown>Locked down</SDE_VehicleDoorDisabledLockdown>
+  <SDE_VehicleDoorDisabledInoperable>Inoperable</SDE_VehicleDoorDisabledInoperable>
 
 </LanguageData>
