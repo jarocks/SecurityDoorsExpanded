@@ -69,12 +69,6 @@ namespace SecurityDoorsExpanded
             base.DeSpawn(mode);
         }
 
-        protected override void Notify_LockdownBegan()
-        {
-            base.Notify_LockdownBegan();
-            holdOpenInt = false;
-        }
-
         protected override void Tick()
         {
             base.Tick();

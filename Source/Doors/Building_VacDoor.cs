@@ -101,9 +101,9 @@ namespace SecurityDoorsExpanded
 
         public override bool FreePassage => Checkpoint?.Active != true && base.FreePassage;
         
-        public override bool PawnCanOpen(Pawn p) => !LockdownActive && !p.IsEntity &&  Checkpoint?.BlocksPawn(p) != true && base.PawnCanOpen(p);
+        public override bool PawnCanOpen(Pawn p) => !lockedDown && !p.IsEntity &&  Checkpoint?.BlocksPawn(p) != true && base.PawnCanOpen(p);
 
-        public override bool BlocksPawn(Pawn p) => Checkpoint?.BlocksPawn(p) == true || base.BlocksPawn(p);
+        public override bool BlocksPawn(Pawn p) => lockedDown || Checkpoint?.BlocksPawn(p) == true || base.BlocksPawn(p);
 
         public bool IsOpening => OpenPct > 0f;
         
@@ -172,6 +172,14 @@ namespace SecurityDoorsExpanded
         protected virtual void Notify_LockdownBegan()
         {
             SDE_DefOf.SDE_Lockdown.PlayOneShot(new TargetInfo(Position, Map));
+            holdOpenInt = false;
+
+            if (Open)
+            {
+                DoorTryClose();
+            }
+
+            MapHeld?.reachability.ClearCache();
         }
 
         private void TickLockdown()
@@ -184,11 +192,6 @@ namespace SecurityDoorsExpanded
             }
 
             lockedDown = active;
-
-            if (!lockedDown || !Open) return;
-
-            holdOpenInt = false;
-            DoorTryClose();
         }
 
         private void TickShutter()

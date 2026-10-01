@@ -82,7 +82,7 @@ namespace SecurityDoorsExpanded
 
             // Used by vac barrier and fail-secure lockout
             DirtyVacuum();
-            ClearReachability();
+            parent.MapHeld?.reachability.ClearCache();
         }
 
         private void RemoveDesignation()
@@ -168,11 +168,6 @@ namespace SecurityDoorsExpanded
             {
                 parent.MapHeld?.GetComponent<VacuumComponent>()?.Dirty();
             }
-        }
-
-        private void ClearReachability()
-        {
-            parent.MapHeld?.reachability.ClearCache();
         }
         
         private static readonly float BarrierAltitude = AltitudeLayer.DoorMoveable.AltitudeFor(-1f);
