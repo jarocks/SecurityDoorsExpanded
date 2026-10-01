@@ -19,6 +19,7 @@
     </placeWorkers>
     <graphicData>
       <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
       <damageData>
         <enabled>false</enabled>
       </damageData>
@@ -59,6 +60,9 @@
       </li>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_DockingPoint"/>
     </comps>
+    <modExtensions>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows"/>
+    </modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="SDE_VacDoorBase" Name="SDE_DoorSmallBase" Abstract="True">
@@ -201,7 +205,7 @@
       </li>
     </comps>
   </ThingDef>
-  
+
   <ThingDef ParentName="SDE_VacDoorBase" Name="SDE_DoorVehicleBase" Abstract="True">
     <thingClass>SecurityDoorsExpanded.Building_VehicleDoor</thingClass>
     <size>(5, 1)</size>

@@ -38,6 +38,27 @@
   </Operation>
 
   <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/graphicData/texPath</xpath>
+    <value>
+      <texPath>Things/Building/SecurityDoor_Medium/SecurityDoor_Medium_Underlayer_Mover</texPath>
+    </value>
+  </Operation>
+  
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]</xpath>
+    <value>
+      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows"/>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="SecurityDoor"]/graphicData</xpath>
+    <value>
+      <shaderType>CutoutComplex</shaderType>
+    </value>
+  </Operation>
+  
+  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="SecurityDoor"]/thingClass</xpath>
     <value>
       <thingClass>SecurityDoorsExpanded.Building_VacDoor</thingClass>

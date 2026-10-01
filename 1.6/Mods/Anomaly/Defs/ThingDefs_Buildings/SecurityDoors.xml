@@ -47,11 +47,6 @@
     </graphicData>
     <uiIconPath>Things/Building/SecurityDoor_Large/SecurityDoor_Large_MenuIcon_south</uiIconPath>
     <building>
-      <soundDoorOpenPowered>SecurityDoor_Open</soundDoorOpenPowered>
-      <soundDoorClosePowered>SecurityDoor_BeginClosing</soundDoorClosePowered>
-      <soundDoorOpenManual>SecurityDoor_Open</soundDoorOpenManual>
-      <soundDoorCloseManual>SecurityDoor_BeginClosing</soundDoorCloseManual>
-      <soundDoorCloseEnd>SecurityDoor_EndClosing</soundDoorCloseEnd>
       <blueprintGraphicData>
         <texPath>Things/Building/SecurityDoor_Large/SecurityDoor_Large_MenuIcon</texPath>
       </blueprintGraphicData>
@@ -90,11 +85,6 @@
     </graphicData>
     <uiIconPath>Things/Building/SecurityDoor_Vehicle/SecurityDoor_Vehicle_MenuIcon_south</uiIconPath>
     <building>
-      <soundDoorOpenPowered>SecurityDoor_Open</soundDoorOpenPowered>
-      <soundDoorClosePowered>SecurityDoor_BeginClosing</soundDoorClosePowered>
-      <soundDoorOpenManual>SecurityDoor_Open</soundDoorOpenManual>
-      <soundDoorCloseManual>SecurityDoor_BeginClosing</soundDoorCloseManual>
-      <soundDoorCloseEnd>SecurityDoor_EndClosing</soundDoorCloseEnd>
       <blueprintGraphicData>
         <texPath>Things/Building/SecurityDoor_Vehicle/SecurityDoor_Vehicle_MenuIcon</texPath>
       </blueprintGraphicData>

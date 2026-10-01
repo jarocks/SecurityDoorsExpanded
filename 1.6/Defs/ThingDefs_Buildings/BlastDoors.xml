@@ -6,7 +6,6 @@
     <description>A heavily armored, blast-resistant door. It's expensive, slow to open, and requires electricity, but can take a tremendous amount of punishment before failing.</description>
     <graphicData>
       <texPath>Things/Building/BlastDoor_Small/BlastDoor_Small_Underlayer_Mover</texPath>
-      <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconPath>Things/Building/BlastDoor_Small/BlastDoor_Small_MenuIcon_south</uiIconPath>
     <building>
@@ -57,11 +56,6 @@
     </costList>
     <modExtensions>
       <li Class="SecurityDoorsExpanded.DefModExtension_DoorShutter"/>
-      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows">
-        <normal>(0,255,0)</normal>
-        <checkpoint>(255,202,0)</checkpoint>
-        <lockdown>(255,0,0)</lockdown>
-      </li>
     </modExtensions>
   </ThingDef>
 
@@ -71,7 +65,6 @@
     <description>A heavily armored, blast-resistant door. It's expensive, slow to open, and requires electricity, but can take a tremendous amount of punishment before failing. The door requires walls on either side to function.</description>
     <graphicData>
       <texPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_Underlayer_Mover</texPath>
-      <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconPath>Things/Building/BlastDoor_Medium/BlastDoor_Medium_MenuIcon_south</uiIconPath>
     <building>
@@ -122,11 +115,6 @@
     </costList>
     <modExtensions>
       <li Class="SecurityDoorsExpanded.DefModExtension_DoorShutter"/>
-      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows">
-        <normal>(0,255,0)</normal>
-        <checkpoint>(255,202,0)</checkpoint>
-        <lockdown>(255,0,0)</lockdown>
-      </li>
     </modExtensions>
   </ThingDef>
 
@@ -136,7 +124,6 @@
     <description>A heavily armored, blast-resistant door. It's expensive, slow to open, and requires electricity, but can take a tremendous amount of punishment before failing. The door requires walls on either side to function.</description>
     <graphicData>
       <texPath>Things/Building/BlastDoor_Large/BlastDoor_Large_Underlayer_Mover</texPath>
-      <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconPath>Things/Building/BlastDoor_Large/BlastDoor_Large_MenuIcon_south</uiIconPath>
     <building>
@@ -187,11 +174,6 @@
     </costList>
     <modExtensions>
       <li Class="SecurityDoorsExpanded.DefModExtension_DoorShutter"/>
-      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows">
-        <normal>(0,255,0)</normal>
-        <checkpoint>(255,202,0)</checkpoint>
-        <lockdown>(255,0,0)</lockdown>
-      </li>
     </modExtensions>
   </ThingDef>
 
@@ -201,7 +183,6 @@
     <description>A heavily armored, blast-resistant door that's wide enough for vehicles and crowds. It's expensive, slow to open, and requires electricity, but can take a tremendous amount of punishment before failing. The door requires walls on either side to function.</description>
     <graphicData>
       <texPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_Underlayer_Mover</texPath>
-      <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <uiIconPath>Things/Building/BlastDoor_Vehicle/BlastDoor_Vehicle_MenuIcon_south</uiIconPath>
     <building>
@@ -252,11 +233,6 @@
     </costList>
     <modExtensions>
       <li Class="SecurityDoorsExpanded.DefModExtension_DoorShutter"/>
-      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows">
-        <normal>(0,255,0)</normal>
-        <checkpoint>(255,202,0)</checkpoint>
-        <lockdown>(255,0,0)</lockdown>
-      </li>
     </modExtensions>
   </ThingDef>
 
