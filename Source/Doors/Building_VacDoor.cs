@@ -234,6 +234,14 @@ namespace SecurityDoorsExpanded
             base.DrawAt(drawLoc, flip);
         }
 
+        protected override void DoorOpen(int ticksToClose = 110)
+        {
+            if (!lockedDown)
+            {
+                base.DoorOpen(ticksToClose);
+            }
+        }
+
         // TODO: Maybe add in status string for disallowed (although the 'X' icon kind of makes it self-explanatory)
         public override string GetInspectString()
         {

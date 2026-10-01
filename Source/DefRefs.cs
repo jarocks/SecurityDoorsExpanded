@@ -18,7 +18,7 @@ namespace SecurityDoorsExpanded
         public static ThingDef GravlitePanel =>
             gravlitePanel ?? (gravlitePanel = DefDatabase<ThingDef>.GetNamedSilentFail("GravlitePanel"));
 
-        public static bool VacBarrierTechUnlocked => OrbitalTech?.IsFinished == true;
+        public static bool OrbitalTechUnlocked => OrbitalTech?.IsFinished == true;
     }
 
     [DefOf]

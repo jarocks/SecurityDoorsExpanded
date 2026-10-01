@@ -39,7 +39,7 @@ namespace SecurityDoorsExpanded
 
         private bool InstallInProgress => !vacBarrierInstalled && (panelsDelivered || installWorkDone > 0f);
         
-        private bool CanInstallVacBarrier => !vacBarrierInstalled && (DefRefs.VacBarrierTechUnlocked || DebugSettings.godMode);
+        private bool CanInstallVacBarrier => !vacBarrierInstalled && (DefRefs.OrbitalTechUnlocked || DebugSettings.godMode);
 
         public float InstallProgress => Mathf.Clamp01(installWorkDone / InstallWork);
 

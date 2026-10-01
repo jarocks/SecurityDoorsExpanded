@@ -37,6 +37,8 @@ namespace SecurityDoorsExpanded
 
         private bool Moving => Open ? TicksTillFullyOpened > 0 : OpenPct > 0f;
 
+        public bool opened => holdOpenInt && Open && TicksTillFullyOpened <= 0;
+
         public override bool PawnCanOpen(Pawn p) => false;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
@@ -69,6 +71,12 @@ namespace SecurityDoorsExpanded
             base.DeSpawn(mode);
         }
 
+        protected override void Notify_LockdownBegan()
+        {
+            base.Notify_LockdownBegan();
+            ClearDesignations();
+        }
+
         protected override void Tick()
         {
             base.Tick();
@@ -89,17 +97,16 @@ namespace SecurityDoorsExpanded
 
         private void UpdateBlocker()
         {
-            var shouldBlock = !(holdOpenInt && Open && TicksTillFullyOpened <= 0);
-            var current = blockerInt != null && blockerInt.Spawned && !blockerInt.Destroyed;
-            if (shouldBlock == current) return;
+            var state = blockerInt != null && blockerInt.Spawned && !blockerInt.Destroyed;
+            if (state == !opened) return;
 
-            if (shouldBlock)
+            if (opened)
             {
-                SpawnBlocker();
+                DespawnBlocker();
             }
             else
             {
-                DespawnBlocker();
+                SpawnBlocker();
             }
         }
 
@@ -139,26 +146,51 @@ namespace SecurityDoorsExpanded
 
         public bool ManualOrderPending => ManualOrder != null;
 
-        private void OrderManualOperation()
+        public bool Operable => Spawned && !StuckOpen && !this.IsBrokenDown();
+
+        public void StartOpening() => ToggleDoorState(true);
+
+        public void StartClosing() => ToggleDoorState(false);
+
+        private void ToggleDoorState(bool open)
         {
-            if (ManualOrderPending) return;
-            Map.designationManager.AddDesignation(new Designation(this,
-                holdOpenInt ? SDE_DefOf.SDE_CloseVehicleDoor : SDE_DefOf.SDE_OpenVehicleDoor));
+            if (!Operable) return;
+
+            var orderDef = open ? SDE_DefOf.SDE_OpenVehicleDoor : SDE_DefOf.SDE_CloseVehicleDoor;
+            if (ManualOrder?.def == orderDef) return;
+
+            ClearDesignations();
+            if (DoorPowerOn || holdOpenInt == open)
+            {
+                holdOpenInt = open;
+                return;
+            }
+
+            Map.designationManager.AddDesignation(new Designation(this, orderDef));
         }
 
-        public void CancelManualOrder()
+        private void ClearDesignations()
         {
             // If door has conflicting orders, cancel both
             Map.designationManager.DesignationOn(this, SDE_DefOf.SDE_OpenVehicleDoor)?.Delete();
             Map.designationManager.DesignationOn(this, SDE_DefOf.SDE_CloseVehicleDoor)?.Delete();
         }
 
-        public void Notify_ManualOrderComplete()
+        public void Notify_ManualOrderComplete(Pawn pawn)
         {
             var order = ManualOrder;
             if (order == null) return;
+
+            ClearDesignations();
             holdOpenInt = order.def == SDE_DefOf.SDE_OpenVehicleDoor;
-            CancelManualOrder();
+            if (holdOpenInt)
+            {
+                StartManualOpenBy(pawn);
+            }
+            else
+            {
+                StartManualCloseBy(pawn);
+            }
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -186,20 +218,10 @@ namespace SecurityDoorsExpanded
                     : (holdOpenInt ? "SDE_VehicleDoorClose" : "SDE_VehicleDoorOpen")).Translate(),
                 icon = pending ? CancelIcon : (holdOpenInt ? CloseIcon : OpenIcon),
                 hotKey = KeyBindingDefOf.Misc3,
-                action = delegate
-                {
-                    if (!DoorPowerOn)
-                    {
-                        OrderManualOperation();
-                    }
-                    else
-                    {
-                        holdOpenInt = !holdOpenInt;
-                    }
-                }
+                action = () => ToggleDoorState(!holdOpenInt)
             };
 
-            if (StuckOpen || this.IsBrokenDown())
+            if (!Operable)
             {
                 command.Disable();
             }

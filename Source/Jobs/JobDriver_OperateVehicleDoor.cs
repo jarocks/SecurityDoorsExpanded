@@ -27,7 +27,7 @@ namespace SecurityDoorsExpanded
             var finalize = ToilMaker.MakeToil("OperateVehicleDoor");
             finalize.initAction = delegate
             {
-                Door?.Notify_ManualOrderComplete();
+                Door?.Notify_ManualOrderComplete(pawn);
             };
             finalize.defaultCompleteMode = ToilCompleteMode.Instant;
             yield return finalize;
