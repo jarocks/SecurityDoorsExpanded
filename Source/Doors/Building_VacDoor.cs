@@ -11,68 +11,59 @@ namespace SecurityDoorsExpanded
     {
         public int ticksToClose = 60;
     }
-    
-    public class DefModExtension_DoorArrows : DefModExtension
-    {
-        public Color off = Color.gray;
-        public Color normal = Color.green;
-        public Color checkpoint = Color.yellow;
-        public Color lockdown = Color.red;
-    }
 
     [StaticConstructorOnStartup]
     public class Building_VacDoor : Building_SupportedDoor
     {
         private bool tmpStuckOpen;
-        
+
         [Unsaved] private Graphic upperMoverGraphicInt;
         [Unsaved] private CompVacCheckpoint cachedCheckpoint;
         [Unsaved] private CompVacDoor cachecVacBarrier;
         [Unsaved] private DefModExtension_DoorShutter cachedShutters;
-        [Unsaved] private DefModExtension_DoorArrows cachedArrows;
         [Unsaved] private Graphic moverGraphicInt;
         [Unsaved] private Color moverGraphicColor;
-        
+
         // 1 = shutter held open, 0 = vanilla door tracking
         [Unsaved] private float shutterOpenPct;
-        
+
         public CompVacCheckpoint Checkpoint => cachedCheckpoint;
 
         public CompVacDoor VacBarrier => cachecVacBarrier;
 
         public DefModExtension_DoorShutter Shutter => cachedShutters;
 
-        public DefModExtension_DoorArrows Arrows => cachedArrows;
-        
+        public bool ClearanceRestricted => Compat_SecurityClearance.Restricted(this);
+
         private Color ArrowColor
         {
             get
             {
-                var arrows = Arrows;
-                if (!lockedDown && Checkpoint?.Active != true)
-                {
-                    return DoorPowerOn ? arrows.normal : arrows.off;
-                }
+                if (lockedDown) return ArrowLockdown;
+                if (Checkpoint?.Active == true || ClearanceRestricted) return ArrowConditional;
 
-                return lockedDown ? arrows.lockdown : arrows.checkpoint;
+                return DoorPowerOn ? ArrowNormal : ArrowOff;
             }
         }
-        
+
         private Graphic MoverGraphic
         {
             get
             {
-                if (Arrows == null) return Graphic;
-
                 var color = ArrowColor;
                 if (moverGraphicInt == null || color != moverGraphicColor)
                 {
-                    moverGraphicInt = Graphic.GetColoredVersion(Graphic.Shader, DrawColor,
-                        moverGraphicColor = color);
+                    moverGraphicInt = Graphic.GetColoredVersion(Graphic.Shader, DrawColor, moverGraphicColor = color);
                 }
+
                 return moverGraphicInt;
             }
         }
+
+        private static readonly Color ArrowOff = Color.gray;
+        private static readonly Color ArrowNormal = Color.green;
+        private static readonly Color ArrowConditional = Color.yellow;
+        private static readonly Color ArrowLockdown = Color.red;
 
         private const float MoverOffsetStart = 0.25f;
         private const float MoverOffsetSpan = 0.35000002f;
@@ -88,11 +79,10 @@ namespace SecurityDoorsExpanded
             base.SpawnSetup(map, respawningAfterLoad);
             shutterOpenPct = Shutter != null && DoorPowerOn ? 1f : 0f;
             lockedDown = LockdownActive;
-            
+
             cachedCheckpoint = GetComp<CompVacCheckpoint>();
             cachecVacBarrier = GetComp<CompVacDoor>();
             cachedShutters = def.GetModExtension<DefModExtension_DoorShutter>();
-            cachedArrows = def.GetModExtension<DefModExtension_DoorArrows>();
         }
 
         public override bool ExchangeVacuum => VacBarrier?.VacBarrierActive != true && base.ExchangeVacuum;
@@ -100,13 +90,13 @@ namespace SecurityDoorsExpanded
         protected override float TempEqualizeRate => VacBarrier?.VacBarrierActive == true ? 0f : base.TempEqualizeRate;
 
         public override bool FreePassage => Checkpoint?.Active != true && base.FreePassage;
-        
-        public override bool PawnCanOpen(Pawn p) => !lockedDown && !p.IsEntity &&  Checkpoint?.BlocksPawn(p) != true && base.PawnCanOpen(p);
 
-        public override bool BlocksPawn(Pawn p) => lockedDown || Checkpoint?.BlocksPawn(p) == true || base.BlocksPawn(p);
+        public override bool PawnCanOpen(Pawn p) => !lockedDown && !p.IsEntity && base.PawnCanOpen(p);
+
+        public override bool BlocksPawn(Pawn p) => Checkpoint?.BlocksPawn(p) == true || base.BlocksPawn(p);
 
         public bool IsOpening => OpenPct > 0f;
-        
+
         private Graphic UpperMoverGraphic
         {
             get
@@ -129,11 +119,12 @@ namespace SecurityDoorsExpanded
         }
 
 
-       private bool failSecure;
+        private bool failSecure;
 
         public bool lockedDown;
 
-        public bool LockdownActive => failSecure && !DoorPowerOn || compForbiddable?.Forbidden == true;
+        public bool LockdownActive => !DoorPowerOn && (failSecure || Compat_SecurityClearance.LockedOut(this)) ||
+                                      compForbiddable?.Forbidden == true;
 
         private static readonly Texture2D LockedIcon = ContentFinder<Texture2D>.Get("UI/Commands/SDE_LockModeSecure");
 
@@ -220,7 +211,7 @@ namespace SecurityDoorsExpanded
                 var offsetDist = MoverOffsetStart + MoverOffsetSpan * OpenPct;
                 DrawMovers(drawLoc, offsetDist, MoverGraphic, AltitudeLayer.DoorMoveable.AltitudeFor(),
                     MoverDrawScale, Graphic.ShadowGraphic);
-                
+
                 if (def.building.upperMoverGraphic != null)
                 {
                     // Works well enough
@@ -242,14 +233,31 @@ namespace SecurityDoorsExpanded
             }
         }
 
-        // TODO: Maybe add in status string for disallowed (although the 'X' icon kind of makes it self-explanatory)
         public override string GetInspectString()
         {
             string line = null;
-            if (lockedDown && compForbiddable?.Forbidden != true)
+            if (lockedDown)
             {
-                var reason = (this.IsBrokenDown() ? "SDE_BrokenDown" : "SDE_NoPower").Translate();
-                line = "SDE_Lockdown".Translate(reason).Colorize(ColorLibrary.RedReadable);
+                var reason = "SDE_Locked";
+
+                if (Compat_SecurityClearance.LockedOut(this))
+                {
+                    reason = "SDE_Lockout";
+                }
+                else if (this.IsBrokenDown())
+                {
+                    reason = "SDE_BrokenDown";
+                }
+                else if (compForbiddable?.Forbidden == true)
+                {
+                    reason = "SDE_Forbidden";
+                }
+                else if (!DoorPowerOn)
+                {
+                    reason = "SDE_PoweredOff";
+                }
+                
+                line = "SDE_Lockdown".Translate(reason.Translate()).Colorize(ColorLibrary.RedReadable);
             }
 
             return new StringBuilder(base.GetInspectString()).AppendInNewLine(line).ToString();

@@ -13,6 +13,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <RuntimeIdentifiers>win</RuntimeIdentifiers>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,6 +39,10 @@
     <Reference Include="System.Core"/>
     <Reference Include="System.Data"/>
     <Reference Include="System.Xml"/>
+    <Reference Include="SecurityClearance">
+      <HintPath>..\..\..\references\SecurityClearance\Assemblies\SecurityClearance.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="**\*.cs" Exclude="bin\**\*.cs;obj\**\*.cs" />

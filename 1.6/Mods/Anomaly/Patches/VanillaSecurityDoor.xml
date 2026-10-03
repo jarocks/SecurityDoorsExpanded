@@ -16,6 +16,12 @@
           <shaderType>TransparentPostLight</shaderType>
           <drawSize>(2, 1)</drawSize>
         </checkpoint>
+        <conditional>
+          <texPath>Things/Building/HoloBanner_Medium/HoloBanner_Medium_Conditional</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(2, 1)</drawSize>
+        </conditional>
       </li>
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
@@ -41,13 +47,6 @@
     <xpath>Defs/ThingDef[defName="SecurityDoor"]/graphicData/texPath</xpath>
     <value>
       <texPath>Things/Building/SecurityDoor_Medium/SecurityDoor_Medium_Underlayer_Mover</texPath>
-    </value>
-  </Operation>
-  
-  <Operation Class="PatchOperationAddModExtension">
-    <xpath>Defs/ThingDef[defName="SecurityDoor"]</xpath>
-    <value>
-      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows"/>
     </value>
   </Operation>
 

@@ -74,7 +74,7 @@ namespace SecurityDoorsExpanded
         protected override void Notify_LockdownBegan()
         {
             base.Notify_LockdownBegan();
-            ClearDesignations();
+            ClearDesignation();
         }
 
         protected override void Tick()
@@ -156,7 +156,7 @@ namespace SecurityDoorsExpanded
             var orderDef = open ? SDE_DefOf.SDE_OpenVehicleDoor : SDE_DefOf.SDE_CloseVehicleDoor;
             if (ManualOrder?.def == orderDef) return;
 
-            ClearDesignations();
+            ClearDesignation();
             if (DoorPowerOn || holdOpenInt == open)
             {
                 holdOpenInt = open;
@@ -166,7 +166,7 @@ namespace SecurityDoorsExpanded
             Map.designationManager.AddDesignation(new Designation(this, orderDef));
         }
 
-        private void ClearDesignations()
+        private void ClearDesignation()
         {
             // If door has conflicting orders, cancel both
             Map.designationManager.DesignationOn(this, SDE_DefOf.SDE_OpenVehicleDoor)?.Delete();
@@ -178,7 +178,7 @@ namespace SecurityDoorsExpanded
             var order = ManualOrder;
             if (order == null) return;
 
-            ClearDesignations();
+            ClearDesignation();
             holdOpenInt = order.def == SDE_DefOf.SDE_OpenVehicleDoor;
             if (holdOpenInt)
             {

@@ -22,10 +22,12 @@ namespace SecurityDoorsExpanded
 
         [Unsaved] private bool inAtmosphere;
 
-        [Unsaved] public bool frontActive;
+        [Unsaved] private bool frontOxygenated;
 
         [Unsaved] public bool Active;
 
+        [Unsaved] public Rot4 Rotation;
+        
         private static readonly Texture2D VacRestrictIcon = ContentFinder<Texture2D>.Get("UI/Commands/SDE_Checkpoint");
 
         private void RefreshVacuum()
@@ -37,10 +39,11 @@ namespace SecurityDoorsExpanded
                 return;
             }
 
-            // Maybe the front direction should be stored instead?
             var axis = parent.Rotation.FacingCell;
-            frontActive = IsOxygenated(parent.Position + axis, map);
-            Active = frontActive != IsOxygenated(parent.Position - axis, map);
+            frontOxygenated = IsOxygenated(parent.Position + axis, map);
+            Active = frontOxygenated != IsOxygenated(parent.Position - axis, map);
+            
+            Rotation = Active ? (frontOxygenated ? parent.Rotation : parent.Rotation.Opposite) : Rot4.Invalid;
         }
 
         public override void PostExposeData()

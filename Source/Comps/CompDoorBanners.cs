@@ -6,6 +6,7 @@ namespace SecurityDoorsExpanded
     {
         public GraphicData lockdown;
         public GraphicData checkpoint;
+        public GraphicData conditional;
 
         public CompProperties_DoorBanners()
         {
@@ -15,7 +16,7 @@ namespace SecurityDoorsExpanded
 
     public sealed class CompDoorBanners : ThingComp
     {
-        public CompProperties_DoorBanners Props => (CompProperties_DoorBanners) props;
+        public CompProperties_DoorBanners Props => (CompProperties_DoorBanners)props;
 
         private static readonly float BannerAltitude = AltitudeLayer.DoorMoveable.AltitudeFor(1f);
 
@@ -26,28 +27,32 @@ namespace SecurityDoorsExpanded
             if (!SecurityDoorsExpandedMod.Settings.showStatus || !(parent is Building_VacDoor door) ||
                 door.IsOpening) return;
 
-            var lockdown = door.lockedDown;
-            Rot4 side;
+            GraphicData banner;
+            var rotation = door.Rotation;
 
-            if (lockdown)
+            if (door.lockedDown)
             {
-                side = door.Rotation;
+                banner = Props.lockdown;
+            }
+            else if (door.Checkpoint?.Active == true && door.Checkpoint.Rotation != Rot4.North)
+            {
+                banner = Props.checkpoint;
+                rotation = door.Checkpoint.Rotation;
+            } else if (door.ClearanceRestricted)
+            {
+                banner = Props.conditional;
             }
             else
             {
-                var checkpoint = door.Checkpoint;
-                if (checkpoint?.Active != true) return;
-
-                side = checkpoint.frontActive ? door.Rotation : door.Rotation.Opposite;
-                if (side == Rot4.North) return;
+                return;
             }
 
-            var graphic = (lockdown ? Props.lockdown : Props.checkpoint)?.Graphic;
+            var graphic = banner?.Graphic;
             if (graphic == null) return;
 
             var drawLoc = door.DrawPos;
             drawLoc.y = BannerAltitude;
-            graphic.Draw(drawLoc, side, door);
+            graphic.Draw(drawLoc, rotation, door);
         }
     }
 }

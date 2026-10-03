@@ -22,6 +22,12 @@
           <shaderType>TransparentPostLight</shaderType>
           <drawSize>(3, 1)</drawSize>
         </checkpoint>
+        <conditional>
+          <texPath>Things/Building/HoloBanner_Large/HoloBanner_Large_Conditional</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(3, 1)</drawSize>
+        </conditional>
       </li>
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
@@ -61,13 +67,6 @@
       <shaderType>CutoutComplex</shaderType>
     </value>
   </Operation>
-  <Operation Class="PatchOperationAddModExtension">
-    <xpath>Defs/ThingDef[defName="RB_LargeSecurityDoor"]</xpath>
-    <value>
-      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows"/>
-    </value>
-  </Operation>
-
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="SDE_SecurityDoorSmall"]/building/doorTopGraphic/drawSize</xpath>
     <value>

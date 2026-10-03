@@ -21,11 +21,14 @@
   <SDE_NoPower>no power</SDE_NoPower>
   <SDE_BrokenDown>broken down</SDE_BrokenDown>
   <SDE_Forbidden>forbidden</SDE_Forbidden>
+  <SDE_Lockout>security lockout</SDE_Lockout>
+  <SDE_LOTO>lockout tagout</SDE_LOTO>
+  <SDE_Locked>locked</SDE_Locked>
   <SDE_CheckpointActive>Active (required vacuum resistance: {0})</SDE_CheckpointActive>
   <SDE_CheckpointInactive>Inactive</SDE_CheckpointInactive>
 
   <SDE_SettingStatus>Show door status:</SDE_SettingStatus>
-  <SDE_SettingStatusDesc>Displays holograms on doors which locked down or have active vac checkpoints</SDE_SettingStatusDesc>
+  <SDE_SettingStatusDesc>Displays holograms on doors which are locked down or have active vac checkpoints</SDE_SettingStatusDesc>
 
   <SDE_SettingDraftedBypass>Drafted pawns bypass vac checkpoints:</SDE_SettingDraftedBypass>
   <SDE_SettingDraftedBypassDesc>Whether drafted colonists should ignore vacuum checkpoints, because who needs VacSuits after all?</SDE_SettingDraftedBypassDesc>

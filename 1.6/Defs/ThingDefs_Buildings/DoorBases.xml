@@ -60,9 +60,6 @@
       </li>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_DockingPoint"/>
     </comps>
-    <modExtensions>
-      <li Class="SecurityDoorsExpanded.DefModExtension_DoorArrows"/>
-    </modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="SDE_VacDoorBase" Name="SDE_DoorSmallBase" Abstract="True">
@@ -96,6 +93,12 @@
           <shaderType>TransparentPostLight</shaderType>
           <drawSize>(1, 1)</drawSize>
         </checkpoint>
+        <conditional>
+          <texPath>Things/Building/HoloBanner_Small/HoloBanner_Small_Conditional</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(1, 1)</drawSize>
+        </conditional>
       </li>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacCheckpoint"/>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
@@ -143,6 +146,12 @@
           <shaderType>TransparentPostLight</shaderType>
           <drawSize>(2, 1)</drawSize>
         </checkpoint>
+        <conditional>
+          <texPath>Things/Building/HoloBanner_Medium/HoloBanner_Medium_Conditional</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(2, 1)</drawSize>
+        </conditional>
       </li>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacCheckpoint"/>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
@@ -190,6 +199,12 @@
           <shaderType>TransparentPostLight</shaderType>
           <drawSize>(3, 1)</drawSize>
         </checkpoint>
+        <conditional>
+          <texPath>Things/Building/HoloBanner_Large/HoloBanner_Large_Conditional</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(3, 1)</drawSize>
+        </conditional>
       </li>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacCheckpoint"/>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
@@ -247,6 +262,12 @@
           <shaderType>TransparentPostLight</shaderType>
           <drawSize>(5, 1)</drawSize>
         </checkpoint>
+        <conditional>
+          <texPath>Things/Building/HoloBanner_Vehicle/HoloBanner_Vehicle_Conditional</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>TransparentPostLight</shaderType>
+          <drawSize>(5, 1)</drawSize>
+        </conditional>
       </li>
       <li MayRequire="Ludeon.RimWorld.Odyssey" Class="SecurityDoorsExpanded.CompProperties_VacDoor">
         <panelCost>6</panelCost>
