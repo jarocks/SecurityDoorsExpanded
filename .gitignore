@@ -1,8 +1,9 @@
 tools
 .venv
 .idea
-Source/bin
-Source/obj
+bin/
+obj/
 *.DotSettings*
 .junie
 .DS_Store
+/packages/
