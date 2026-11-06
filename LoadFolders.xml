@@ -1,8 +1,16 @@
 <loadFolders>
   <v1.6>
     <li>/</li>
+    <li>Common</li>
     <li>1.6</li>
-    <li IfModActive="Ludeon.RimWorld.Anomaly">1.6/Mods/Anomaly</li>
-    <li IfModActiveAll="Ludeon.RimWorld.Anomaly,ReBuild.COTR.DoorsAndCorners">1.6/Mods/ReBuild</li>
+    <li IfModActive="Ludeon.RimWorld.Anomaly">Common/Mods/Anomaly</li>
+    <li IfModActiveAll="Ludeon.RimWorld.Anomaly,ReBuild.COTR.DoorsAndCorners">Common/Mods/ReBuild</li>
   </v1.6>
+  <v1.7>
+    <li>/</li>
+    <li>Common</li>
+    <li>1.7</li>
+    <li IfModActive="Ludeon.RimWorld.Anomaly">Common/Mods/Anomaly</li>
+    <li IfModActiveAll="Ludeon.RimWorld.Anomaly,ReBuild.COTR.DoorsAndCorners">Common/Mods/ReBuild</li>
+  </v1.7>
 </loadFolders>

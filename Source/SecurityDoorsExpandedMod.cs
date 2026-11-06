@@ -1,3 +1,4 @@
+using System.Reflection;
 using HarmonyLib;
 using RimWorld;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace SecurityDoorsExpanded
     {
         static SecurityDoorsExpandedStartup()
         {
-            new Harmony("jarocks.securityDoorsExpanded").PatchAll();
+            new Harmony("jarocks.securityDoorsExpanded").PatchAll(Assembly.GetExecutingAssembly());
         }
     }
 

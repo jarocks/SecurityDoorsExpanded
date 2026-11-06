@@ -6,6 +6,7 @@
   <modVersion>1.2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
+    <li>1.7</li>
   </supportedVersions>
   <description>Rejoice, blast doors are here! This mod adds more sizes, new materials, integrated vac barriers, and more to security doors making these once overlooked doors into top-tier infrastructure for your colony and gravship. No longer underpowered, one trick ponies that can't even keep a revenant at bay. And yes, this mod does keep revenants and other nuisance entities locked out (or in) as well.</description>
   <modDependencies>
